@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Login – RF Demo App{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h1>Login</h1>
+    <p class="subtitle">Robot Framework Demo Application</p>
+
+    <form method="POST" action="/login" data-testid="login-form">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                data-testid="username-input"
+                placeholder="z.B. admin"
+                autocomplete="username"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                data-testid="password-input"
+                placeholder="Passwort"
+                autocomplete="current-password"
+            >
+        </div>
+
+        {% if error %}
+        <div class="error-box" data-testid="login-error" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <button type="submit" data-testid="login-button" class="btn-primary">
+            Login
+        </button>
+    </form>
+
+    <div class="credentials-hint">
+        <strong>Test-Zugangsdaten:</strong><br>
+        admin / password123<br>
+        user1 / testpass
+    </div>
+</div>
+{% endblock %}

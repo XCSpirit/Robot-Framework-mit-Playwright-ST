@@ -1,0 +1,37 @@
+# Node
+node_modules/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+app/__pycache__/
+libraries/__pycache__/
+variables/__pycache__/
+
+# Robot Framework Ergebnisse
+results/
+!results/.gitkeep
+
+# Playwright Browser-Binaries (werden per rfbrowser init geladen)
+.rfbrowser/
+
+# Umgebungsvariablen
+.env
+.env.local
+
+# IDE
+.vscode/settings.json
+.idea/
+*.suo
+*.user
+
+# Windows
+Thumbs.db
+desktop.ini

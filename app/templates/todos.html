@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Todos – RF Demo App{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <h1>Todos</h1>
+
+    <!-- Neues Todo hinzufügen -->
+    <form method="POST" action="/todos" class="add-form" data-testid="add-todo-form">
+        <input
+            type="text"
+            name="text"
+            data-testid="todo-input"
+            placeholder="Neues Todo eingeben..."
+            autocomplete="off"
+        >
+        <button type="submit" data-testid="add-todo-button" class="btn-primary">
+            Hinzufügen
+        </button>
+    </form>
+
+    <!-- Todo-Liste -->
+    <ul class="todo-list" data-testid="todo-list">
+        {% for todo in todos %}
+        <li
+            class="todo-item {% if todo.complete %}completed{% endif %}"
+            data-testid="todo-item-{{ todo.id }}"
+        >
+            <span class="todo-text" data-testid="todo-text-{{ todo.id }}">
+                {{ todo.text }}
+            </span>
+
+            <div class="todo-actions">
+                <!-- Complete / Undo -->
+                <form method="POST" action="/todos/{{ todo.id }}/complete" style="display:inline">
+                    <button
+                        type="submit"
+                        data-testid="todo-complete-{{ todo.id }}"
+                        data-action="complete"
+                        class="btn-secondary"
+                        title="{% if todo.complete %}Rückgängig{% else %}Erledigen{% endif %}"
+                    >
+                        {% if todo.complete %}↩ Rückgängig{% else %}✓ Erledigen{% endif %}
+                    </button>
+                </form>
+
+                <!-- Delete -->
+                <form method="POST" action="/todos/{{ todo.id }}/delete" style="display:inline">
+                    <button
+                        type="submit"
+                        data-testid="todo-delete-{{ todo.id }}"
+                        data-action="delete"
+                        class="btn-danger"
+                        title="Löschen"
+                    >
+                        ✕ Löschen
+                    </button>
+                </form>
+            </div>
+        </li>
+        {% else %}
+        <li class="empty-state" data-testid="todo-empty">
+            Noch keine Todos. Füge oben eines hinzu!
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

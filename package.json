@@ -1,0 +1,13 @@
+{
+  "name": "robot-playwright-demo",
+  "version": "1.0.0",
+  "description": "Robot Framework + Playwright Demo für Playwright-Entwickler",
+  "scripts": {
+    "setup": "python -m pip install -r requirements.txt && rfbrowser init",
+    "app": "python app/app.py",
+    "test": "robot --outputdir results tests/",
+    "test:visible": "robot --variable HEADLESS:False --outputdir results tests/",
+    "test:smoke": "robot --include smoke --outputdir results tests/",
+    "test:one": "robot --outputdir results tests/01_hello_world.robot"
+  }
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RF Demo App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% if session.username %}
+    <nav data-testid="main-nav">
+        <span class="nav-brand">RF Demo App</span>
+        <a href="/dashboard" data-testid="nav-dashboard">Dashboard</a>
+        <a href="/todos" data-testid="nav-todos">Todos</a>
+        <a href="/logout" data-testid="logout-link">Logout ({{ session.user_name }})</a>
+    </nav>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

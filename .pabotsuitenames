@@ -1,0 +1,9 @@
+datasources:a7dd22d82626e1bf0e5a83fc9c7c341adf14e55a
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:a634e8c08cc7dec4d10b31e0102d07d4417ec2ad
+--suite Tests.01 Hello World
+--suite Tests.02 Login Tests
+--suite Tests.03 Data Driven
+--suite Tests.04 Todo Crud
+--suite Tests.05 Python Integration

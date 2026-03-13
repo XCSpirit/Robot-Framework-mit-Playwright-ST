@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Dashboard – RF Demo App{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <h1>Dashboard</h1>
+
+    <div class="welcome-card" data-testid="welcome-message">
+        Willkommen, {{ user_name }}!
+    </div>
+
+    <div class="role-badge" data-testid="user-role">
+        Rolle: {{ user_role }}
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card" data-testid="todo-count">
+            <span class="stat-number">{{ total_count }}</span>
+            <span class="stat-label">Todos gesamt</span>
+        </div>
+        <div class="stat-card" data-testid="todo-open-count">
+            <span class="stat-number">{{ open_count }}</span>
+            <span class="stat-label">Offen</span>
+        </div>
+        <div class="stat-card" data-testid="todo-done-count">
+            <span class="stat-number">{{ done_count }}</span>
+            <span class="stat-label">Erledigt</span>
+        </div>
+    </div>
+
+    <a href="/todos" class="btn-primary" data-testid="go-to-todos-button">
+        Todos verwalten →
+    </a>
+</div>
+{% endblock %}
